@@ -16,15 +16,17 @@ class DetailViewController: UIViewController {
     
     // MARK: - Properties
     var selectedImage: String?
+    var total: Int?
+    var index: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = selectedImage
         navigationItem.largeTitleDisplayMode = .never
         
-        if let imageToLoad = selectedImage {
+        if let imageToLoad = selectedImage, let total = total, let index = index {
             imageView.image = UIImage(named: imageToLoad)
+            title = "Picture \(index + 1) of \(total)"
         }
     }
     
